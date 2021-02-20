@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/shahsbrothers/public_html/shahsbrothers.com.pk
-    - /bin/cp -R *.* $DEPLOYPATH
