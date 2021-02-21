@@ -21,6 +21,34 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Add User
+    $(document).on('submit', '#add_user_form', function(e) {
+        e.preventDefault();
+        var fdata = new FormData(this);
+        console.log("user add");
+        $.ajax({
+            url: 'core/add_user.php',
+            type: 'post',
+            processData: false,
+            cache: false,
+            contentType: false,
+            data: fdata,
+            success: function(data) {
+                data = JSON.parse(data)
+                if (data.success) {
+                    alert('User Registered.')
+                    $('#add_user_form').trigger("reset");
+                } else
+                    $('.resp1').html(data.errors['error'])
+
+
+            },
+            error: function(e) {
+                alert("Somthing went wrong. Try again!")
+            }
+        })
+    });
 });
 
 function generateTable() {

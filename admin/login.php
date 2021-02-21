@@ -125,7 +125,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                     })
                     // using the done promise callback
                     .done(function(data) {
-                        console.log(data);
+                        // console.log(data);
 
                         success = data.success;
                         if (success) {

@@ -6,6 +6,9 @@ if(!isset($_SESSION["loggedin"])){
     exit;
 }
 
+include('core/dashboard_values.php');
+
+
 ?>
 
 <!doctype html>
@@ -26,10 +29,14 @@ if(!isset($_SESSION["loggedin"])){
     <!-- Bootstrap core CSS -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard_cards.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/DataTables/datatables.min.css" />
 
 
     <style>
+.table th {
+  text-align: center;
+}
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -50,6 +57,99 @@ if(!isset($_SESSION["loggedin"])){
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 </head>
+
+<!-- ADD USER  Model-->
+<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add User </h4>                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <!--/.modal-header-->
+    
+                <div class="modal-body">
+                    <form id="add_user_form" >
+                        <div class="form-group" id="currentPass-group">
+                            <label for="current_pass"> Email :</label>
+                            <input class="form-control" type="text" name="email_c" id="email_c" >
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="new_pass"> Username :</label>
+                            <input class="form-control" type="text" name="username_c" id="username_c" >
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="confirm_pass">Passwrod :</label>
+                            <input class="form-control" type="password" name="password_c" id="password_c" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_pass"> Confirm Password :</label>
+                            <input class="form-control" type="password" name="confirm_pass_c" id="confirm_pass_c" >
+                        </div>
+
+                        <div class="resp1" style="font-size: 14px; color: red;"></div>
+
+                        <div class="modal-footer">
+                            <!-- <input type="submit" name="submit" class="btn btn-block btn-warning" value="Save changes" /> -->
+                            <input type="submit" name="submit123" class="btn btn-success" id="submit123" value="Save changes" value="Save Changes">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+<!-- END Model -->
+
+
+<!-- ADD PRODUCT  Model-->
+<div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add Product </h4>                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <!--/.modal-header-->
+    
+                <div class="modal-body">
+                    <form id="add_product_form" enctype="multipart/form-data" >
+                        <div class="form-group" id="currentPass-group">
+                            <label for="current_pass"> Title :</label>
+                            <input class="form-control" type="text" name="prod_title" id="prod_title" >
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="prod_desc" name="prod_desc" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Thumbnail</label>
+                            <input type="file" class="form-control-file" id="prod_thumb" name="prod_thumb">
+                        </div>
+                        <div class="resp2" style="font-size: 14px; color: red;"></div>
+
+                        <div class="modal-footer">
+                            <!-- <input type="submit" name="submit" class="btn btn-block btn-warning" value="Save changes" /> -->
+                            <input type="submit" name="submit_prod" class="btn btn-success" id="submit123" value="Save changes" value="Save Changes">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+<!-- END Model -->
+
 
 <body>
 
@@ -117,136 +217,43 @@ if(!isset($_SESSION["loggedin"])){
               </button>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row">
+                    
+                        <div class="col-md-3">
+                        <div class="card-counter info">
+                            <i class="fa fa-users"></i>
+                            <span class="count-numbers"> <?php echo $users_count; ?></span>
+                            <span class="count-name">Users</span>
+                        </div>
+                        </div>
 
-                <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+                        <div class="col-md-3">
+                        <div class="card-counter success">
+                            <i class="fa fa-database"></i>
+                            <span class="count-numbers"><?php echo $product_count; ?></span>
+                            <span class="count-name">Products</span>
+                        </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                        <div class="card-counter primary">
+                            <i class="fa fa-user-shield"></i>
+                            <span class="count-numbers">12</span>
+                            <span class="count-name">Visitors</span>
+                        </div>
+                        </div>
 
-                <h2>Section title</h2>
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Header</th>
-                                <th>Header</th>
-                                <th>Header</th>
-                                <th>Header</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>random</td>
-                                <td>data</td>
-                                <td>placeholder</td>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>placeholder</td>
-                                <td>irrelevant</td>
-                                <td>visual</td>
-                                <td>layout</td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>data</td>
-                                <td>rich</td>
-                                <td>dashboard</td>
-                                <td>tabular</td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>information</td>
-                                <td>placeholder</td>
-                                <td>illustrative</td>
-                                <td>data</td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>text</td>
-                                <td>random</td>
-                                <td>layout</td>
-                                <td>dashboard</td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>dashboard</td>
-                                <td>irrelevant</td>
-                                <td>text</td>
-                                <td>placeholder</td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>dashboard</td>
-                                <td>illustrative</td>
-                                <td>rich</td>
-                                <td>data</td>
-                            </tr>
-                            <tr>
-                                <td>1,007</td>
-                                <td>placeholder</td>
-                                <td>tabular</td>
-                                <td>information</td>
-                                <td>irrelevant</td>
-                            </tr>
-                            <tr>
-                                <td>1,008</td>
-                                <td>random</td>
-                                <td>data</td>
-                                <td>placeholder</td>
-                                <td>text</td>
-                            </tr>
-                            <tr>
-                                <td>1,009</td>
-                                <td>placeholder</td>
-                                <td>irrelevant</td>
-                                <td>visual</td>
-                                <td>layout</td>
-                            </tr>
-                            <tr>
-                                <td>1,010</td>
-                                <td>data</td>
-                                <td>rich</td>
-                                <td>dashboard</td>
-                                <td>tabular</td>
-                            </tr>
-                            <tr>
-                                <td>1,011</td>
-                                <td>information</td>
-                                <td>placeholder</td>
-                                <td>illustrative</td>
-                                <td>data</td>
-                            </tr>
-                            <tr>
-                                <td>1,012</td>
-                                <td>text</td>
-                                <td>placeholder</td>
-                                <td>layout</td>
-                                <td>dashboard</td>
-                            </tr>
-                            <tr>
-                                <td>1,013</td>
-                                <td>dashboard</td>
-                                <td>irrelevant</td>
-                                <td>text</td>
-                                <td>visual</td>
-                            </tr>
-                            <tr>
-                                <td>1,014</td>
-                                <td>dashboard</td>
-                                <td>illustrative</td>
-                                <td>rich</td>
-                                <td>data</td>
-                            </tr>
-                            <tr>
-                                <td>1,015</td>
-                                <td>random</td>
-                                <td>tabular</td>
-                                <td>information</td>
-                                <td>text</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <i class="fa fa-user-tie"></i>
+                            <span class="count-numbers">0</span>
+                            <span class="count-name">Clients</span>
+                        </div>
+                    </div>
+
+
+                </div>
                 </div>
             </main>
             <!-- END Dashboard -->
@@ -255,7 +262,7 @@ if(!isset($_SESSION["loggedin"])){
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="users">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5"> Dashboard / Users</h1>
-                    <a href="#" class="float-right"> Add User</a>
+                    <a href="#" class="float-right" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> Add User</a>
                 </div>
                 <div>
                     <!-- <h2>Users <a href="" class="float-right"> + </a></h2> -->
@@ -272,10 +279,19 @@ if(!isset($_SESSION["loggedin"])){
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="products">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5"> Dashboard / Products</h1>
+                    
+                    <div class="float-right" style="font-size:18px">
+                        <a href="#" data-toggle="modal" data-target="#add_product" data-backdrop="static" data-keyboard="false">
+                        <i class="fas fa-plus"></i> Add Product
+                        </a>
+                    </div>
 
                 </div>
                 <div>
-                    <h2>Products </h2>
+                <div class="table-responsive">
+                    <table id="products_table" class="display" width="100%"></table>
+
+                </div>
 
                 </div>
             </main>
@@ -323,6 +339,8 @@ if(!isset($_SESSION["loggedin"])){
     <script type="text/javascript" src="../assets/vendor/DataTables/datatables.min.js"></script>
     <script src="js/render_pages.js"></script>
     <script src="js/users.js"></script>
+    <script src="js/products.js"></script>
+
 </body>
 
 </html>

@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $password_hash = $row['password'];
         $id = $row['id'];
         if ($status) {
+            // if ($password === $password_hash)
             if (password_verify($password, $password_hash))
                 {
                     // Store data in session variables
