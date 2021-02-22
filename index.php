@@ -289,7 +289,7 @@
                                     <h4> <?php echo $p['title'] ?> </h4>
                                     <p><?php echo $p['description'] ?></p>
                                     <div class="portfolio-links">
-                                        <a href="<?php echo substr($p['thumb'],3) ?>" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="fas fa-expand"></i></a>
+                                        <a href="<?php echo substr($p['thumb'],3) ?>" data-gall="portfolioGallery" class="venobox" title="<?php echo $p['title'] ?>"><i class="fas fa-expand"></i></a>
                                     </div>
                                 </div>
                             </div>
