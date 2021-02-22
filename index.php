@@ -284,7 +284,7 @@
                     ?>
                         <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                             <div class="portfolio-wrap">
-                                <img src="<?php echo substr($p['thumb'],3) ?>" class="img-fluid" alt="">
+                                <img src="<?php echo substr($p['thumb'],3) ?>" class="img-fluid" alt="<?php echo $p['title'] ?>">
                                 <div class="portfolio-info">
                                     <h4> <?php echo $p['title'] ?> </h4>
                                     <p><?php echo $p['description'] ?></p>
