@@ -1,4 +1,5 @@
 <?php
+session_name('AUTH_TOKEN');
 session_start();
 
 // Include config file

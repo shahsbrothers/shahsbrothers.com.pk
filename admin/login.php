@@ -1,4 +1,5 @@
 <?php
+session_name('AUTH_TOKEN');
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -18,8 +19,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
     <title>Signin</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/sign-in/">
 
     <!-- Favicons -->
     <link href="../assets/img/favicon.png" rel="icon">

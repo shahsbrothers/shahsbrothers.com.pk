@@ -60,24 +60,12 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="index.php">Home</a></li>
-                    <li class="drop-down"><a href="#">Products</a>
-                        <ul>
-                            <li><a href="#"> Example 1</a></li>
-                            <li><a href="#">Example 2</a></li>
-
-                            <li class="drop-down"><a href="#">Example 3</a>
-                                <ul>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <!-- Dynamic Content here -->
+                    <?php
+                        include_once('catagories.php');
+                    ?>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
 
                 </ul>
             </nav>
@@ -270,38 +258,9 @@
         <!-- End About Section -->
 
         <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Products </h2>
-                </div>
-                <div class="row portfolio-container">
-
-                    <?php
-                    include_once('core/get_products.php');
-                    foreach ($products as $p) {
-                        
-                    ?>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                            <div class="portfolio-wrap">
-                                <img src="<?php echo substr($p['thumb'],3) ?>" class="img-fluid" alt="<?php echo $p['title'] ?>">
-                                <div class="portfolio-info">
-                                    <h4> <?php echo $p['title'] ?> </h4>
-                                    <p><?php echo $p['description'] ?></p>
-                                    <div class="portfolio-links">
-                                        <a href="<?php echo substr($p['thumb'],3) ?>" data-gall="portfolioGallery" class="venobox" title="<?php echo $p['title'] ?>"><i class="fas fa-expand"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-
-                </div>
-
-            </div>
-        </section>
+        <?php
+        include_once('portfolio.php');
+        ?>
         <!-- End Portfolio Section -->
 
 

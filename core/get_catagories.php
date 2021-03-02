@@ -1,20 +1,18 @@
 <?php
 include ('conn.php');
 
-$sql = "SELECT title, description, thumb FROM products";
+$sql = "SELECT ca_info FROM `categories`";
 $result = $conn->query($sql);
 
-$products = [];
+$categories = [];
 
 if ($result->num_rows > 0) {
   // output data of each row
-  while($row1 = $result->fetch_assoc()) 
+  while($row = $result->fetch_assoc()) 
   {
-    $products[] = $row1;
+    $categories[] = json_decode( $row['ca_info']);
   }
 } 
 
 $conn->close();
-
-
 ?>

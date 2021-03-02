@@ -3,25 +3,21 @@ include_once ('conn.php');
 
 // header("Access-Control-Allow-Origin: *");
 // header("Access-Control-Allow-Headers: *");
+$userId = $_GET['userId'];
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM users WHERE id='$userId'";
 $result = $conn->query($sql);
 
-$outArray = array();
+$outArray = "";
 
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) 
-  {
-    $outArray[] = array(
-          "userId" => $row['id'], 
+    $row = $result->fetch_assoc();
+    $outArray = array(
           "username" => $row['username'], 
-          "email" => $row['email'],  
-          "password" => '$2y$10$',  
-          "date_created" => $row['date_created'], 
+          "email" => $row['email'],    
           "status" => $row['status']
         );
-  }
+  
 } 
 
 $conn->close();

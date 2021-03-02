@@ -60,24 +60,12 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li class="drop-down"><a href="#">Products</a>
-                        <ul>
-                            <li><a href="#"> Example 1</a></li>
-                            <li><a href="#">Example 2</a></li>
-
-                            <li class="drop-down"><a href="#">Example 3</a>
-                                <ul>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                    <li><a href="#">Sub 1 Example 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li class="active"><a href="contact.html">Contact</a></li>
+                    <!-- Dynamic Content here -->
+                    <?php
+                        include_once('catagories.php');
+                    ?>
+                    <li><a href="about.php">About Us</a></li>
+                    <li class="active"><a href="contact.php">Contact</a></li>
 
                 </ul>
             </nav>

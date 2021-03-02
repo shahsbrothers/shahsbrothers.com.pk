@@ -1,4 +1,5 @@
 <?php
+session_name('AUTH_TOKEN');
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(!isset($_SESSION["loggedin"])){
@@ -30,9 +31,7 @@ include('core/dashboard_values.php');
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/dashboard_cards.css">
-    <link rel="stylesheet" type="text/css" href="../assets/vendor/DataTables/datatables.min.css" />
-
-
+    <link rel="stylesheet" href="css/loader.css">
     <style>
 .table th {
   text-align: center;
@@ -50,7 +49,7 @@ include('core/dashboard_values.php');
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
-        }
+        }        
     </style>
 
 
@@ -58,98 +57,9 @@ include('core/dashboard_values.php');
     <link href="css/dashboard.css" rel="stylesheet">
 </head>
 
-<!-- ADD USER  Model-->
-<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add User </h4>                    
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <!--/.modal-header-->
-    
-                <div class="modal-body">
-                    <form id="add_user_form" >
-                        <div class="form-group" id="currentPass-group">
-                            <label for="current_pass"> Email :</label>
-                            <input class="form-control" type="text" name="email_c" id="email_c" >
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="new_pass"> Username :</label>
-                            <input class="form-control" type="text" name="username_c" id="username_c" >
-                        </div>
-                       
-                        <div class="form-group">
-                            <label for="confirm_pass">Passwrod :</label>
-                            <input class="form-control" type="password" name="password_c" id="password_c" >
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirm_pass"> Confirm Password :</label>
-                            <input class="form-control" type="password" name="confirm_pass_c" id="confirm_pass_c" >
-                        </div>
-
-                        <div class="resp1" style="font-size: 14px; color: red;"></div>
-
-                        <div class="modal-footer">
-                            <!-- <input type="submit" name="submit" class="btn btn-block btn-warning" value="Save changes" /> -->
-                            <input type="submit" name="submit123" class="btn btn-success" id="submit123" value="Save changes" value="Save Changes">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        </div>
-
-                    </form>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-<!-- END Model -->
-
-
-<!-- ADD PRODUCT  Model-->
-<div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add Product </h4>                    
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <!--/.modal-header-->
-    
-                <div class="modal-body">
-                    <form id="add_product_form" enctype="multipart/form-data" >
-                        <div class="form-group" id="currentPass-group">
-                            <label for="current_pass"> Title :</label>
-                            <input class="form-control" type="text" name="prod_title" id="prod_title" >
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea class="form-control" id="prod_desc" name="prod_desc" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlFile1">Thumbnail</label>
-                            <input type="file" class="form-control-file" id="prod_thumb" name="prod_thumb">
-                        </div>
-                        <div class="resp2" style="font-size: 14px; color: red;"></div>
-
-                        <div class="modal-footer">
-                            <!-- <input type="submit" name="submit" class="btn btn-block btn-warning" value="Save changes" /> -->
-                            <input type="submit" name="submit_prod" class="btn btn-success" id="submit123" value="Save changes" value="Save Changes">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        </div>
-
-                    </form>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-<!-- END Model -->
-
+<?php include_once('models/user.php') ?>
+<?php include_once('models/product.php') ?>
+<?php include_once('models/category.php') ?>
 
 <body>
 
@@ -163,7 +73,7 @@ include('core/dashboard_values.php');
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="core/logout.php"> <span data-feather="power" style="color: red;"></span> </a>
+                <a class="nav-link logout" href="#"> <span data-feather="power" style="color: red;"></span> </a>
             </li>
         </ul>
     </nav>
@@ -180,7 +90,7 @@ include('core/dashboard_values.php');
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="render_users();" id="users_link">
-                                <span data-feather="file"></span> Users
+                                <span data-feather="user-plus"></span> Users
                             </a>
                         </li>
                         <li class="nav-item">
@@ -189,13 +99,8 @@ include('core/dashboard_values.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="render_clients();" id="clients_link">
-                                <span data-feather="users"></span> Clients
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="render_reports();" id="reports_link">
-                                <span data-feather="bar-chart-2"></span> Reports
+                            <a class="nav-link" href="#" onclick="brochure_clients();" id="brochure_link">
+                                <span data-feather="file"></span> Brochure
                             </a>
                         </li>
                     </ul>
@@ -206,6 +111,7 @@ include('core/dashboard_values.php');
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="dashboard" style="display: block;">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5">Dashboard</h1>
+                    
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -239,8 +145,8 @@ include('core/dashboard_values.php');
                         <div class="col-md-3">
                         <div class="card-counter primary">
                             <i class="fa fa-user-shield"></i>
-                            <span class="count-numbers">12</span>
-                            <span class="count-name">Visitors</span>
+                            <span class="count-numbers"><?php echo $categories_count; ?></span>
+                            <span class="count-name">Brochures</span>
                         </div>
                         </div>
 
@@ -254,7 +160,7 @@ include('core/dashboard_values.php');
 
 
                 </div>
-                </div>
+
             </main>
             <!-- END Dashboard -->
 
@@ -262,15 +168,32 @@ include('core/dashboard_values.php');
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="users">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5"> Dashboard / Users</h1>
-                    <a href="#" class="float-right" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> Add User</a>
+                    <a href="#" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> <i class="fas fa-user-plus"> </i> </a>
+
+                    <!-- <a href="#" class="float-right" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> Add User</a> -->
                 </div>
                 <div>
                     <!-- <h2>Users <a href="" class="float-right"> + </a></h2> -->
 
                 </div>
-                <div class="table-responsive">
-                    <table id="users_table" class="display" width="100%"></table>
+                <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody align='center' id="users_data">
 
+                    </tbody>
+                    </table>                   
                 </div>
             </main>
             <!-- END USERS -->
@@ -279,67 +202,78 @@ include('core/dashboard_values.php');
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="products">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5"> Dashboard / Products</h1>
-                    
-                    <div class="float-right" style="font-size:18px">
-                        <a href="#" data-toggle="modal" data-target="#add_product" data-backdrop="static" data-keyboard="false">
-                        <i class="fas fa-plus"></i> Add Product
-                        </a>
-                    </div>
-
+                    <a href="#" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#add_product" data-backdrop="static" data-keyboard="false"> <i class="fas fa-plus-circle"> </i> </a>
                 </div>
                 <div>
-                <div class="table-responsive">
-                    <table id="products_table" class="display" width="100%"></table>
 
+                <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Thumbnail</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody align='center' id="products_data">
+
+                    </tbody>
+                    </table>                   
                 </div>
 
-                </div>
             </main>
             <!-- END Products -->
 
-            <!-- Clients -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="clients">
+            <!-- Brochures -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="brochure">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h5"> Dashboard / Clients</h1>
-
+                    <h1 class="h5"> Dashboard / Brochures</h1>
+                    <a href="#" class="btn btn-dark btn-sm add_ca_model_btn" data-toggle="modal" data-target="#add_ca_model" data-backdrop="static" data-keyboard="false"> <i class="fas fa-plus"> </i> </a>
                 </div>
-                <div>
-                    <h2>Clients </h2>
+                
+                <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Total Items</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody align='center' id="cat_data">
 
+                    </tbody>
+                    </table>                   
                 </div>
             </main>
             <!-- END Clients -->
 
-            <!-- Reports -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="reports">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h5"> Dashboard / Clients</h1>
-
-                </div>
-                <div>
-                    <h2>Clients </h2>
-
-                </div>
-            </main>
-            <!-- END Reports -->
-
         </div>
     </div>
 
-
+    <div class="loading" style="display:none" id="loader">
+        <div class="loader"></div>
+    </div>
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+ 
+    <script src="js/feather.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>  -->
     <script src="js/dashboard.js"></script>
     <script type="text/javascript" src="../assets/vendor/DataTables/datatables.min.js"></script>
     <script src="js/render_pages.js"></script>
     <script src="js/users.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/catagories.js"></script>
+    <script src="js/logout.js"></script>
 
 </body>
 

@@ -16,6 +16,11 @@ $result = $conn->query($sql);
 $product_count = $result->fetch_assoc();
 $product_count = $product_count['product_count'];
 
+// Products
+$sql = "SELECT COUNT(*) as categories_count FROM `categories`";
+$result = $conn->query($sql);
+$categories_count = $result->fetch_assoc();
+$categories_count = $categories_count['categories_count'];
 
 $conn->close();
 ?>

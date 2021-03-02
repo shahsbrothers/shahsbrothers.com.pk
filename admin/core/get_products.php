@@ -13,7 +13,13 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) 
   {
-    $outArray[] = array($row['product_id'], $row['title'], $row['description'], $row['thumb'],  $row['date_created'], );
+    $outArray[] = array(
+         "producId" => $row['product_id'], 
+         "title" => $row['title'], 
+         "description" => $row['description'], 
+         "thumb" => $row['thumb'], 
+         "date_created" => $row['date_created'],
+       );
   }
 } 
 
