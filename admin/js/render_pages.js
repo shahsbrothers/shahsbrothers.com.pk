@@ -4,6 +4,8 @@ function render_dashboard() {
     document.getElementById("users").style.display = "none";
     document.getElementById("products").style.display = "none";
     document.getElementById("brochure").style.display = "none";
+    document.getElementById("settings").style.display = "none";
+
     // document.getElementById("reports").style.display = "none";
     activeClass("dashboard_link")
 }
@@ -14,6 +16,8 @@ function render_users() {
     document.getElementById("users").style.display = "block";
     document.getElementById("products").style.display = "none";
     document.getElementById("brochure").style.display = "none";
+    document.getElementById("settings").style.display = "none";
+
     // document.getElementById("reports").style.display = "none";
     activeClass("users_link")
 }
@@ -24,6 +28,8 @@ function render_products() {
     document.getElementById("users").style.display = "none";
     document.getElementById("products").style.display = "block";
     document.getElementById("brochure").style.display = "none";
+    document.getElementById("settings").style.display = "none";
+
     // document.getElementById("reports").style.display = "none";
     activeClass("products_link")
 }
@@ -34,9 +40,20 @@ function brochure_clients() {
     document.getElementById("users").style.display = "none";
     document.getElementById("products").style.display = "none";
     document.getElementById("brochure").style.display = "block";
+    document.getElementById("settings").style.display = "none";
+
     activeClass("brochure_link")
 }
 
+function Render_Settings() {
+    // console.log("Brochures")
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("users").style.display = "none";
+    document.getElementById("products").style.display = "none";
+    document.getElementById("brochure").style.display = "none";
+    document.getElementById("settings").style.display = "block";
+    activeClass("settings_link")
+}
 
 function activeClass(e) {
     var elems = document.querySelectorAll(".active");

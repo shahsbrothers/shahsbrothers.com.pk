@@ -29,6 +29,8 @@ include('core/dashboard_values.php');
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/dashboard_cards.css">
     <link rel="stylesheet" href="css/loader.css">
@@ -49,7 +51,8 @@ include('core/dashboard_values.php');
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
-        }        
+        }      
+          
     </style>
 
 
@@ -103,6 +106,11 @@ include('core/dashboard_values.php');
                                 <span data-feather="file"></span> Brochure
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="Render_Settings();" id="settings_link">
+                                <span data-feather="settings"></span> Settings
+                            </a>
+                        </li>                        
                     </ul>
                 </div>
             </nav>
@@ -253,6 +261,110 @@ include('core/dashboard_values.php');
             </main>
             <!-- END Clients -->
 
+            <!-- Settings -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="settings">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h5"> Dashboard / Settings</h1>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                            <div class="card-header">
+                                Social Media
+                            </div>
+                            <div class="card-body">
+                                <form id="update_social_icons">
+                                        <!-- Twitter -->
+                                        <div class="form-row align-items-center">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="bx bxl-twitter"></i> </div>
+                                                </div>
+                                                <input type="text" class="form-control" name="twitter" id="twitter" placeholder="">
+                                            </div>
+                                        </div>
+
+                                        <!-- Facebook -->
+                                        <div class="form-row align-items-center">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                <div class="input-group-text"> <i class="bx bxl-facebook"></i> </div>
+                                                </div>
+                                                <input type="text" class="form-control" name="facebook" id="facebook" placeholder="">
+                                            </div>
+                                        </div>   
+                                          
+                                        <!-- Insta -->
+                                        <div class="form-row align-items-center">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                <div class="input-group-text"> <i class="bx bxl-instagram"></i> </div>
+                                                </div>
+                                                <input type="text" class="form-control" name="instagram" id="instagram" placeholder="">
+                                            </div>
+                                        </div>    
+
+                                        <!-- Skype -->
+                                        <div class="form-row align-items-center">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                <div class="input-group-text"> <i class="bx bxl-skype"></i> </div>
+                                                </div>
+                                                <input type="text" class="form-control" name="skype" id="skype" placeholder="">
+                                            </div>
+                                        </div>   
+
+                                        <!-- Linkdin -->
+                                        <div class="form-row align-items-center">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                <div class="input-group-text"> <i class="bx bxl-linkedin"></i> </div>
+                                                </div>
+                                                <input type="text" class="form-control" name="linkdin" id="linkdin" placeholder="">
+                                            </div>
+                                        </div>                                                                                                                                                      
+                                        <div class="col-auto">
+                                        <button type="submit" class="btn btn-success  float-right">Update</button>
+                                        </div>                                     
+                                    </form> 
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" >
+                                <div class="card">
+                                <div class="card-header">
+                                    Slider
+                                </div>
+                                <div class="card-body">
+                                        <form id="update_slider">
+                                            <div class="form-group">
+                                                <label for="slider1">Slider 1</label>
+                                                <input type="file" class="form-control-file" name="slider1" id="slider1">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="slider2">Slider 2</label>
+                                                <input type="file" class="form-control-file" name="slider2" id="slider2">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="slider3">Slider 3</label>
+                                                <input type="file" class="form-control-file" name="slider3" id="slider3">
+                                            </div>                                            
+                                            
+                                            <button type="submit" class="btn btn-primary  float-right">Update</button>
+                                                                                                                                
+                                        </form>                                    
+                                </div>
+                                </div>
+                        </div>
+                    </div>                
+                </div>
+            </main>
+            <!-- END Clients -->
         </div>
     </div>
 
@@ -274,7 +386,7 @@ include('core/dashboard_values.php');
     <script src="js/products.js"></script>
     <script src="js/catagories.js"></script>
     <script src="js/logout.js"></script>
-
+    <script src="js/settings.js"></script>
 </body>
 
 </html>

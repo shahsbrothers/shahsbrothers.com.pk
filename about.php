@@ -39,11 +39,11 @@
                 <!--, 0332 8004762 , 091 2245745 -->
             </div>
             <div class="social-links">
-                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                <a href="#" class="skype"><i class="icofont-skype"></i></a>
-                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+                <a href="#" class="twitter"     target="_blank"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"    target="_blank"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"   target="_blank"><i class="icofont-instagram"></i></a>
+                <a href="#" class="skype"       target="_blank"><i class="icofont-skype"></i></a>
+                <a href="#" class="linkedin"    target="_blank"><i class="icofont-linkedin"></i></i></a>
             </div>
         </div>
     </section>
@@ -311,11 +311,11 @@
                             We provide services in the areas of Solar System, Renewable Energy, diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine as well as digital health and enterprise services.
                         </p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="#" class="twitter"     target="_blank"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"    target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"   target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="skype"       target="_blank"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"    target="_blank"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
 
@@ -347,6 +347,7 @@
     <script src="assets/vendor/counterup/counterup.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/js/social.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

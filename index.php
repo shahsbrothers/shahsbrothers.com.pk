@@ -9,6 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
@@ -27,6 +28,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -40,11 +42,11 @@
                 <!--, 0332 8004762 , 091 2245745 -->
             </div>
             <div class="social-links">
-                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                <a href="#" class="skype"><i class="icofont-skype"></i></a>
-                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+                <a href="#" class="twitter"     target="_blank"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"    target="_blank"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"   target="_blank"><i class="icofont-instagram"></i></a>
+                <a href="#" class="skype"       target="_blank"><i class="icofont-skype"></i></a>
+                <a href="#" class="linkedin"    target="_blank"><i class="icofont-linkedin"></i></i></a>
             </div>
         </div>
     </section>
@@ -76,6 +78,7 @@
     <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
+    <?php include_once('core/get_slider.php') ?>
     <section id="hero">
         <div class="hero-container">
             <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -85,7 +88,7 @@
                 <div class="carousel-inner" role="listbox">
 
                     <!-- Slide 1 -->
-                    <div class="carousel-item active" style="background: url(assets/img/slide/1.jpg)">
+                    <div class="carousel-item active" style="background: url(<?php echo $slider['slider1']; ?>)">
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shah's Brothers</span></h2>
@@ -96,7 +99,7 @@
                     </div>
 
                     <!-- Slide 2 -->
-                    <div class="carousel-item" style="background: url(assets/img/slide/2.jpg)">
+                    <div class="carousel-item" style="background: url(<?php echo $slider['slider2']; ?>">
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2 class="animate__animated fanimate__adeInDown">Welcome to <span>Shah's Brothers</span></h2>
@@ -107,7 +110,7 @@
                     </div>
 
                     <!-- Slide 3 -->
-                    <div class="carousel-item" style="background: url(assets/img/slide/3.jpg)">
+                    <div class="carousel-item" style="background: url(<?php echo $slider['slider3']; ?>)">
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shah's Brothers</span></h2>
@@ -332,11 +335,11 @@
                             We provide services in the areas of Solar System, Renewable Energy, diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine as well as digital health and enterprise services.
                         </p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="#" class="twitter"     target="_blank"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"    target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"   target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="skype"       target="_blank"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"    target="_blank"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
 
@@ -359,6 +362,9 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
+    
+
+
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -368,11 +374,11 @@
     <script src="assets/vendor/counterup/counterup.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/js/social.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <!-- <script src="assets/js/products.js"></script> -->
-
 </body>
 
 </html>
