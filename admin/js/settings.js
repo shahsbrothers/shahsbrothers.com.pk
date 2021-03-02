@@ -7,7 +7,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         fdata = new FormData(this);
-
+        document.getElementById("loader").style.display = "block";
         $.ajax({
             url: 'core/update_social.php',
             type: 'post',
@@ -21,7 +21,7 @@ $(document).ready(function() {
                 // console.log(data)
 
                 if (data.status == 'OK') {
-                    document.getElementById("loader").style.display = "block";
+
                     setTimeout(function() {
                         document.getElementById("loader").style.display = "none";
                     }, 2000);
