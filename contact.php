@@ -131,7 +131,7 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <form action="core/contact.php" method="post" role="form" class="php-email-form">
+                        <form id="contact_form" class="">
                             <div class="form-row">
                                 <div class="col form-group">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -147,14 +147,14 @@
                                 <div class="validate"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                                 <div class="validate"></div>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
+                            </div> -->
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div>
@@ -247,6 +247,7 @@
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/venobox/venobox.min.js"></script>
     <script src="assets/js/social.js"></script>
+    <script src="assets/js/contact.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
