@@ -26,6 +26,8 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/logo.css" rel="stylesheet">
+
 
 </head>
 
@@ -54,7 +56,7 @@
         <div class="container d-flex">
 
             <div class="logo mr-auto">
-                <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+                <a href="index.php"><img src="assets/img/logo-removebg.png" alt="" class="img-fluid rotate"></a>
             </div>
 
             <nav class="nav-menu d-none d-lg-block">

@@ -28,7 +28,8 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    
+    <link href="assets/css/logo.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -56,7 +57,7 @@
         <div class="container d-flex">
 
             <div class="logo mr-auto">
-                <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+                <a href="index.php"><img src="assets/img/logo-removebg.png" alt="" class="img-fluid rotate"></a>
             </div>
 
             <nav class="nav-menu d-none d-lg-block">
@@ -212,12 +213,13 @@
                         <div class="icon-box">
                             <p class="text-center">
                                 <i class="fas fa-hospital"></i>
-                                <h3 class="text-center"><a href="contact.php#contact">Hospital Construction</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact"> Design & Construction</a></h3>
                             </p>
 
-                            <p class="text-center">
-                                Our experience also includes medical office facilities of all sizes for hospitals, physicians’ groups, and national developers. These projects include office and clinical/procedure spaces, as well as same-day surgery, physical therapy, occupational therapy,
-                                cardiology, and imaging.
+                            <p class="text-center" >
+                            Our firm employs a dynamic team of engineers, architects, and technically trained employees with a broad range of experience. This allows us to provide first-rate multidisciplinary services.
+                            We provide world-class building design and construction consultancy.
+
                             </p>
                         </div>
                     </div>
