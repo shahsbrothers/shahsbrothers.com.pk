@@ -3,10 +3,18 @@ include_once ('conn.php');
 
 // header("Access-Control-Allow-Origin: *");
 // header("Access-Control-Allow-Headers: *");
+$useId = $_GET['userId'];
 
-$sql = "SELECT * FROM users";
+if ($useId == "1")
+{
+  $sql = "SELECT * FROM users";
+  
+}
+else
+{
+  $sql = "SELECT * FROM users WHERE id='$useId'";
+}
 $result = $conn->query($sql);
-
 $outArray = array();
 
 if ($result->num_rows > 0) {

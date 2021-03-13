@@ -9,9 +9,11 @@ if(!isset($_SESSION["loggedin"])){
 
 include('core/dashboard_values.php');
 
-
+$userId = (isset($_SESSION['id']))?$_SESSION['id']:'';
 ?>
-
+<script type="text/javascript">
+    var userId='<?php echo $userId;?>';
+</script>
 <!doctype html>
 <html lang="en">
 
@@ -68,7 +70,7 @@ include('core/dashboard_values.php');
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="index.php">
-            <Strong> </span>Shah's Brothers </Strong>
+            <Strong> </span>Shah's Brothers  <?php echo $userId;?> </Strong>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -92,6 +94,7 @@ include('core/dashboard_values.php');
                             </a>
                         </li>
                         <li class="nav-item">
+                        
                             <a class="nav-link" href="#" onclick="render_users();" id="users_link">
                                 <span data-feather="user-plus"></span> Users
                             </a>
@@ -176,7 +179,16 @@ include('core/dashboard_values.php');
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="display: none;" id="users">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h5"> Dashboard / Users</h1>
-                    <a href="#" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> <i class="fas fa-user-plus"> </i> </a>
+                    <?php
+                        if(isset($_SESSION["id"])){
+                            if ($_SESSION["id"] == 1)
+                            {
+                            ?>
+                                <a href="#" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> <i class="fas fa-user-plus"> </i> </a>
+                            <?php    
+                            }
+                        }
+                    ?>
 
                     <!-- <a href="#" class="float-right" data-toggle="modal" data-target="#add_user" data-backdrop="static" data-keyboard="false"> Add User</a> -->
                 </div>

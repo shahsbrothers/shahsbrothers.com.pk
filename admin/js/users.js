@@ -115,6 +115,8 @@ $(document).ready(function() {
 
                         generateUsersTable();
                         alert("User Deleted")
+                    } else {
+                        alert("You are not authorized to delete admin user.")
                     }
                 },
                 error: function(xhr) {
@@ -160,6 +162,9 @@ function generateUsersTable() {
         "url": "core/getUsers.php",
         "type": "GET",
         "datatype": 'json',
+        data: {
+            userId: userId
+        },
         "success": function(data) {
             users = JSON.parse(data);
             // console.log(users);

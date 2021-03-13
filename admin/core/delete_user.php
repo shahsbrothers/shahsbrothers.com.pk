@@ -2,12 +2,20 @@
 include_once ('conn.php');
 
 $rowID = $_GET['rowid'];
-$sql = "DELETE FROM users WHERE id=".$rowID;
+if ($rowID == "1")
+{
+    echo "ERROR";
+}
+else
+{
+    $sql = "DELETE FROM users WHERE id=".$rowID;
 
-$result = $conn->query($sql);
+    $result = $conn->query($sql);
+    
+    $conn->close();
+    
+    
+    echo "OK";
+}
 
-$conn->close();
-
-
-echo "OK"
 ?>
