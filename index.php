@@ -150,7 +150,7 @@
                         <div class="icon-box" style="padding-bottom: 65px;">
                             <p class="text-center">
                                 <i class="fas fa-heartbeat"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">Health Care</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">Health Care</a></h3>
                             </p>
                             <p class="text-justify">
                                 Our purpose is to enable healthcare providers to increase value by empowering them on their journey towards expanding precision medicine, transforming care delivery, and improving patient experience, all enabled by digitizing healthcare.
@@ -161,7 +161,7 @@
                         <div class="icon-box">
                             <p class="text-center">
                                 <i class="fas fa-solar-panel"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">Renewable Energy</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">Renewable Energy</a></h3>
                             </p>
 
                             <p>
@@ -173,7 +173,7 @@
                         <div class="icon-box" style="padding-bottom: 60px;">
                             <p class="text-center">
                                 <i class="fas fa-server"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">IT Solutions</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">IT Solutions</a></h3>
                             </p>
                             <p>
                                 To enhance the business operation of its clients by developing and/or implementing premium IT products and services and Providing high quality software development services, professional consulting and development outsourcing.
@@ -186,7 +186,7 @@
                         <div class="icon-box">
                             <p class="text-center">
                                 <i class="fas fa-fish"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">Aquaculture</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">Aquaculture</a></h3>
                             </p>
                             <p>
                                 To strengthen livelihoods and enhance food and nutrition security by improving fisheries and aquaculture. We pursue this through research partnerships focused on helping those who stand to benefit the most—poor producers and consumers, women and children.
@@ -198,7 +198,7 @@
                         <div class="icon-box">
                             <p class="text-center">
                                 <i class="bx bx-cctv"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">CCTV Installation </a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">CCTV Installation </a></h3>
                             </p>
 
                             <p>
@@ -212,7 +212,7 @@
                         <div class="icon-box">
                             <p class="text-center">
                                 <i class="fas fa-hospital"></i>
-                                <h3 class="text-center"><a href="contact.html#contact">Hospital Construction</a></h3>
+                                <h3 class="text-center"><a href="contact.php#contact">Hospital Construction</a></h3>
                             </p>
 
                             <p class="text-center">
